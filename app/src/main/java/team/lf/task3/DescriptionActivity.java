@@ -2,6 +2,7 @@ package team.lf.task3;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +14,7 @@ import com.squareup.picasso.Picasso;
 
 public class DescriptionActivity extends AppCompatActivity {
 
-    private ImageView iv;
-    private Toolbar tvTittle;
-    private TextView tvDescription;
-    private View bck;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +22,9 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.second_screen);
 
 //        bck = findViewById(R.id.background);
-        iv = findViewById(R.id.app_bar_image);
-        tvTittle = findViewById(R.id.toolbar);
-        tvDescription = findViewById(R.id.description);
+        ImageView iv = findViewById(R.id.app_bar_image);
+        Toolbar tvTittle = findViewById(R.id.toolbar);
+        TextView tvDescription = findViewById(R.id.description);
         Bundle bundle = getIntent().getBundleExtra("bundle");
         String url = bundle.getString("url", "");
         String tittle = bundle.getString("tittle", "");
