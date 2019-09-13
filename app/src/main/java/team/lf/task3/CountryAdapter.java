@@ -39,11 +39,25 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         return mList.size();
     }
 
-    public void addData(List<CountryElement> elements){
+    void addData(List<CountryElement> elements){
         mList.clear();
         mList.addAll(elements);
         notifyDataSetChanged();
     }
+
+    void filterData(String...filters){
+//        List<String> filterList = new ArrayList<>(Arrays.asList(filters));
+        List<CountryElement> elements = new ArrayList<>();
+        for(String filter:filters){
+            for(CountryElement element:mList){
+                if(element.getTvTittle().toLowerCase().contains(filter.toLowerCase()))
+                    elements.add(element);
+            }
+        }
+        mList = elements;
+        notifyDataSetChanged();
+    }
+
 
     class CountryViewHolder extends RecyclerView.ViewHolder {
         private ImageView iv;
