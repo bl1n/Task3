@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,9 +55,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
             tv = itemView.findViewById(R.id.card_tittle);
         }
 
-        void bind(CountryElement element){
+        void bind(final CountryElement element){
             Picasso.get().load(element.getIvUrl()).into(iv);
             tv.setText(element.getTvTittle());
+            itemView.setOnClickListener(v-> EventBus.getDefault().post(new OpenEvent(element)));
         }
     }
 
