@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(
                 new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
 
-        mAdapter.filterData("Россия", "Греция");
+//        mAdapter.filterData("Россия", "Греция");
 
     }
 
